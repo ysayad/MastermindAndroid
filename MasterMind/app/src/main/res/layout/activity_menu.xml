@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_main_background"
+    tools:context=".MenuActivity"
+    android:orientation="vertical">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="200dp"
+       android:background="@drawable/main_title_background"
+       android:gravity="center_horizontal">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/mastermind_logo"/>
+   </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp">
+
+<TextView
+    android:id="@+id/main_title_game_mode"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="@dimen/title_lv1_left_margin"
+    android:layout_height="wrap_content"
+    android:text="@string/main_first_title"
+    android:textSize="@dimen/title_lv1_size"
+    android:textColor="@color/title_lv1_color"
+    android:fontFamily="@font/nexa_heavy"
+    android:layout_marginBottom="35dp"
+    android:layout_above="@id/main_choice_box"
+    />
+
+<LinearLayout
+    android:id="@+id/main_choice_box"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_box"
+    android:gravity="center"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_choose_game_mode_message"
+        android:gravity="center"
+        android:fontFamily="@font/cocogoose_normal"
+        android:textSize="@dimen/normal_text_size"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/main_button_solo"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:background="@drawable/rounded_button_selector"
+        android:text="Solo"
+        android:textSize="@dimen/button_text_size"
+        android:fontFamily="@font/nexa_heavy"
+        android:textColor="@color/white"
+        android:layout_marginVertical="20dp"/>
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="3dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/main_button_color"/>
+
+    <Button
+        android:id="@+id/main_button_hot_seat"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:background="@drawable/rounded_button_selector"
+        android:fontFamily="@font/nexa_heavy"
+        android:text="Hot Seat"
+        android:textColor="@color/white"
+        android:textSize="@dimen/button_text_size"
+        android:layout_marginVertical="20dp"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Autoriser les jetons vides"
+        android:buttonTint="@color/main_button_color"
+        android:textColor="@color/text_color"
+        android:fontFamily="@font/cocogoose_italic"
+        android:textSize="@dimen/small_text_size"
+        android:layout_marginTop="10dp"
+        />
+</LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
