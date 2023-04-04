@@ -8,9 +8,23 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="main_button_color">#FF0000FF</color>
+    <color name="border_gray">#FFEEEEEE</color>
+
+    <color name="main_blue">#FF0000FF</color>
     <color name="main_button_color_touched">#FF0000CC</color>
 
     <color name="title_lv1_color">#FF000077</color>
     <color name="text_color">#FF999999</color>
+
+    <color name="game_row_color">#AAEEEEEE</color>
+    <color name="pawn_border_color">#FFCCCCCC</color>
+
+    <color name="pawn_red">#FFFF0000</color>
+    <color name="pawn_green">#FF00FF00</color>
+    <color name="pawn_blue">#FF0000FF</color>
+    <color name="pawn_yellow">#FFFFFF00</color>
+    <color name="pawn_white">#FFFFFFFF</color>
+    <color name="pawn_black">#FF000000</color>
+    <color name="pawn_empty">#FF888888</color>
+
 </resources>

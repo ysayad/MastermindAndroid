@@ -1,6 +1,10 @@
-package dev.android.sae.mastermind.model;
+package dev.android.sae.mastermind.model.menu;
 
-public class Model {
+
+/**
+ * Le modèle du menu
+ */
+public class ModelMenu {
 /**-------------------- Attributs -----------------------------------------------------------  */
 
     /**
@@ -14,7 +18,7 @@ public class Model {
     /**
      * Constructeur
      */
-    public Model(){
+    public ModelMenu(){
         this.m_emptyPawnFlag = false;
     }
 
@@ -24,5 +28,13 @@ public class Model {
      */
     public void setEmptyPawnActivated(boolean emptyPawnFlag){
         this.m_emptyPawnFlag = emptyPawnFlag;
+    }
+
+    /**
+     * Geter du flag d'activation des jetons vides
+     * @return le flag d'activation des jetons vides
+     */
+    public boolean getEmptyPawnFlag(){
+        return this.m_emptyPawnFlag;
     }
 }

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/activity_main_background"
-    tools:context=".MenuActivity"
+    tools:context=".view.MenuActivity"
     android:orientation="vertical">
 
    <LinearLayout
@@ -22,15 +22,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp">
+        >
 
 <TextView
     android:id="@+id/main_title_game_mode"
     android:layout_width="match_parent"
-    android:layout_marginLeft="@dimen/title_lv1_left_margin"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/title_lv1_left_margin"
     android:text="@string/main_first_title"
-    android:textSize="@dimen/title_lv1_size"
+    android:textSize="@dimen/big_title_size"
     android:textColor="@color/title_lv1_color"
     android:fontFamily="@font/nexa_heavy"
     android:layout_marginBottom="35dp"
@@ -73,7 +73,7 @@
         android:layout_width="100dp"
         android:layout_height="3dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/main_button_color"/>
+        android:backgroundTint="@color/main_blue"/>
 
     <Button
         android:id="@+id/main_button_hot_seat"
@@ -87,10 +87,11 @@
         android:layout_marginVertical="20dp"/>
 
     <CheckBox
+        android:id="@+id/main_checkbox_empty_pawn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Autoriser les jetons vides"
-        android:buttonTint="@color/main_button_color"
+        android:buttonTint="@color/main_blue"
         android:textColor="@color/text_color"
         android:fontFamily="@font/cocogoose_italic"
         android:textSize="@dimen/small_text_size"
