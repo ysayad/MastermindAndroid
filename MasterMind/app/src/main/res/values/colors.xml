@@ -23,7 +23,7 @@
     <color name="pawn_green">#FF00FF00</color>
     <color name="pawn_blue">#FF0000FF</color>
     <color name="pawn_yellow">#FFFFFF00</color>
-    <color name="pawn_white">#FFFFFFFF</color>
+    <color name="pawn_white">#FAF7D8</color>
     <color name="pawn_black">#FF000000</color>
     <color name="pawn_empty">#FF888888</color>
 
