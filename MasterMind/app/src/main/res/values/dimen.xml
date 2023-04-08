@@ -17,4 +17,5 @@
     <dimen name="game_row_vertical_maring">10dp</dimen>
     <dimen name="game_table_padding">20dp</dimen>
     <dimen name="game_pawn_button_radius">40dp</dimen>
+    <dimen name="setting_icon_size">25dp</dimen>
 </resources>
