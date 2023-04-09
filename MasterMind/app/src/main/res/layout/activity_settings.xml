@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_main_background"
+    tools:context=".view.MenuActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/main_title_background"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/mastermind_logo"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/main_title_game_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/title_lv1_left_margin"
+            android:text="@string/setting_title"
+            android:textSize="@dimen/big_title_size"
+            android:textColor="@color/title_lv1_color"
+            android:fontFamily="@font/nexa_heavy"
+            android:layout_marginBottom="35dp"
+            android:layout_above="@id/main_choice_box"
+            />
+
+        <LinearLayout
+            android:id="@+id/main_choice_box"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_box"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_prompt"
+                android:gravity="center"
+                android:fontFamily="@font/cocogoose_normal"
+                android:textSize="@dimen/normal_text_size"
+
+                android:textColor="@color/text_color"
+                android:layout_marginBottom="20dp"/>
+
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="3dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/main_blue"
+                android:layout_marginBottom="20dp"/>
+
+
+            <CheckBox
+                android:id="@+id/setting_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_empty_pawn_activation_prompt"
+                android:textSize="@dimen/small_text_size"
+                android:textColor="@color/text_color"
+                android:fontFamily="@font/cocogoose_italic"
+                tools:ignore="TouchTargetSizeCheck"
+                android:buttonTint="@color/main_blue"/>
+
+
+            <Button
+                android:id="@+id/setting_validation_button"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:background="@drawable/rounded_button_selector"
+                android:fontFamily="@font/nexa_heavy"
+                android:text="@string/setting_validation_button_prompt"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size"
+                android:layout_marginVertical="20dp"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
