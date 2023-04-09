@@ -6,7 +6,8 @@
     android:background="@drawable/activity_main_background"
     tools:context=".view.MenuActivity"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:id="@+id/screen">
 
     <LinearLayout
         android:layout_width="match_parent"

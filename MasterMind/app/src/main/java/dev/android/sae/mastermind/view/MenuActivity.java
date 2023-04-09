@@ -52,7 +52,7 @@ public class MenuActivity extends AppCompatActivity {
         if(requestCode == this.requestCode && resultCode == this.RESULT_OK){
             //On passe par le controleur pour changer le modele
             this.settingListener.setEmptyPawnsFlag(data.getBooleanExtra("empty_pawns",false));
-            Log.d("tag","Retour = "+ data.getBooleanExtra("empty_pawns",false));
+
         }
 
     }

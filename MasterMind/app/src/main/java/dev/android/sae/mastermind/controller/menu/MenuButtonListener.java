@@ -14,6 +14,7 @@ public class MenuButtonListener implements View.OnClickListener{
     private Activity menuActivity;
     private ModelMenu model;
 
+
     public MenuButtonListener(int soloButtonId, Activity menuActivity, ModelMenu model){
         this.soloButtonId = soloButtonId;
         this.menuActivity = menuActivity;
@@ -22,11 +23,14 @@ public class MenuButtonListener implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == this.soloButtonId){
+        // Lancer une partie solo
+        if (view.getId() == this.soloButtonId){
             Intent i = new Intent(this.menuActivity, GameActivity.class);
             i.putExtra("emptyPawnsFlag",this.model.getEmptyPawnFlag());
+            i.putExtra("defender", "EMPTY");
             this.menuActivity.startActivity(i);
-        }else{ //HotSeat est selectionné
+        // Lancer une partie HotSeat
+        } else { //HotSeat est selectionné
             Intent i = new Intent(this.menuActivity, ChoiceActivity.class);
             i.putExtra("emptyPawnsFlag",this.model.getEmptyPawnFlag());
             this.menuActivity.startActivity(i);

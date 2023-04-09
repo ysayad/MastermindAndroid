@@ -1,6 +1,7 @@
 package dev.android.sae.mastermind.controller.game;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Handler;
@@ -18,15 +19,16 @@ import dev.android.sae.mastermind.R;
 import dev.android.sae.mastermind.model.game.Combination;
 import dev.android.sae.mastermind.model.game.ModelGame;
 import dev.android.sae.mastermind.model.game.Pawns;
+import dev.android.sae.mastermind.view.MenuActivity;
 
-public class ColorButtonListener implements View.OnClickListener {
+public class ColorButtonListener implements View.OnClickListener, View.OnTouchListener {
     private final ModelGame model;
     private final LinearLayout buttonBox;
+    private boolean ended = false;
 
     public ColorButtonListener (ModelGame model, LinearLayout buttonBox) {
         this.model = model;
         this.buttonBox = buttonBox;
-        int click = 0;
 
     }
 
@@ -34,6 +36,7 @@ public class ColorButtonListener implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         Pawns pawnColor = Pawns.GRAY;
+        // On récupère la couleur du pion
         switch (view.getId()){
             case R.id.RED:
                 pawnColor = Pawns.RED;
@@ -58,6 +61,7 @@ public class ColorButtonListener implements View.OnClickListener {
         this.model.getProposal().addPawn(pawnColor);
         this.model.getPawn().setBackgroundTintList(ColorStateList.valueOf(pawnColor.getColor()));
         this.model.setColorCount(this.model.getColorCount()+1);
+
         if (this.model.getColorCount()>=4) {
             Combination res = this.model.getProposal().compare(this.model.getDefendant());
             if (res.winning()) {
@@ -65,12 +69,10 @@ public class ColorButtonListener implements View.OnClickListener {
                 TableLayout tableLayout = this.model.getVictoryView();
                 this.buttonBox.addView(tableLayout);
                 this.buttonBox.invalidate();
-
-
-                Log.d("w", "winning");
+                this.ended = true;
             }
             this.setResRowsColor(res);
-            Log.d("w", res.winning()+"");
+
 
             this.model.setColorCount(0);
             this.model.setProposalIndex(this.model.getProposalIndex()+1);
@@ -79,11 +81,31 @@ public class ColorButtonListener implements View.OnClickListener {
                 TableLayout tableLayout = this.model.getDefeatView();
                 this.buttonBox.addView(tableLayout);
                 this.buttonBox.invalidate();
+                this.ended = true;
             }
         }
     }
 
-    @SuppressLint("ResourceAsColor")
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (motionEvent.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                if (this.ended) {
+                    Intent intent = new Intent(view.getContext(), MenuActivity.class);
+                    view.getContext().startActivity(intent);
+
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        return true;
+    }
+
+    /**
+     * Permet de changer la couleur des pions du résultat
+     * @param res la combinaison de résultat
+     */
     private void setResRowsColor(Combination res) {
         for (int i = 0; i < res.getComposition().length; i++) {
             View pawn = this.model.getResPawn(i);

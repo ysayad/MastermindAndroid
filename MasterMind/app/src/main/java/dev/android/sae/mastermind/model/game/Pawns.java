@@ -15,10 +15,15 @@ public enum Pawns {
     YELLOW,
     WHITE,
     BLACK,
-    GRAY;
+    GRAY,
+    EMPTY;
 
     private static final Random RANDOM = new Random();
 
+    /**
+     *
+     * @return la couleur correspondant au pion
+     */
     public int getColor() {
         switch (this) {
             case RED:
@@ -39,10 +44,19 @@ public enum Pawns {
         return Color.GRAY;
     }
 
-    public static Pawns getRandom() {
+    /**
+     *
+     * @param empty_flag true si les pions vide (GRAY) sont autorisés
+     * @return un pion aléatoire
+     */
+    public static Pawns getRandom(boolean empty_flag) {
         Pawns ret = values()[RANDOM.nextInt(values().length)];
-        while (ret==GRAY || ret==WHITE || ret==BLACK)
-            ret = values()[RANDOM.nextInt(values().length)];
+        if (empty_flag)
+            while (ret==WHITE || ret==BLACK || ret==EMPTY)
+                ret = values()[RANDOM.nextInt(values().length)];
+        else
+            while (ret==WHITE || ret==BLACK || ret==EMPTY || ret==GRAY)
+                ret = values()[RANDOM.nextInt(values().length)];
         return ret;
     }
 }
