@@ -10,4 +10,5 @@
     <string name="setting_prompt">Ici, vous pourrez configurer \nl\'application Mastermind</string>
     <string name="setting_empty_pawn_activation_prompt">Activer les pions incolores</string>
     <string name="setting_validation_button_prompt">Valider la configuration</string>
+    <string name="secret_combination">La combinaison secrète :</string>
 </resources>
