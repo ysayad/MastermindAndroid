@@ -24,6 +24,7 @@ public class MenuSettingButtonListener implements View.OnClickListener {
     @Override
     public void onClick(View view) {
             Intent i = new Intent(this.menuActivity, SettingsActivity.class);
+            i.putExtra("emptyPawnsFlag",this.model.getEmptyPawnFlag());
             this.menuActivity.startActivityForResult(i,this.requestCode);
         }
 

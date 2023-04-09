@@ -2,7 +2,9 @@ package dev.android.sae.mastermind.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
@@ -21,6 +23,17 @@ public class SettingsActivity extends AppCompatActivity {
 
         this.controller = new SettingsControler(this);
         CheckBox checkBox = (CheckBox) this.findViewById(R.id.setting_checkbox);
+
+        this.getIntent();
+        Intent intent = this.getIntent();
+        Bundle extras = intent.getExtras();
+        Boolean empty_flag = extras.getBoolean("emptyPawnsFlag");
+
+        if (!empty_flag) {
+            checkBox.setChecked(false);
+        } else {
+            checkBox.setChecked(true);
+        }
         Button button = (Button) this.findViewById(R.id.setting_validation_button);
 
         checkBox.setOnCheckedChangeListener(this.controller);
