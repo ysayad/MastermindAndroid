@@ -1,5 +1,6 @@
 package dev.android.sae.mastermind.view;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import dev.android.sae.mastermind.R;
 import dev.android.sae.mastermind.controller.game.ColorButtonListener;
@@ -72,5 +73,16 @@ public class GameActivity extends AppCompatActivity {
         }
 
         this.findViewById(R.id.screen).setOnTouchListener(cbl);
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(GameActivity.this, MenuActivity.class);
+                intent.putExtra("emptyPawnsFlag", empty_flag);
+                startActivity(intent);
+            }
+        };
+        this.getOnBackPressedDispatcher().addCallback(this, callback);
     }
 }
