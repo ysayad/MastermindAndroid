@@ -49,7 +49,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
                 android:gravity="center"
                 >
 
@@ -96,6 +96,8 @@
             android:id="@+id/buttonRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_row"
+            android:layout_margin="@dimen/game_big_pawn_margin"
             android:gravity="center">
             <LinearLayout
                 android:layout_height="wrap_content"
@@ -109,7 +111,7 @@
                     android:layout_width="@dimen/game_pawn_button_radius"
                     android:layout_height="@dimen/game_pawn_button_radius"
                     android:background="@drawable/pawn"
-                    android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
+                    android:layout_margin="@dimen/game_big_pawn_margin"
                     android:backgroundTint="@color/pawn_red"
                     />
 
@@ -153,7 +155,7 @@
                     android:layout_width="@dimen/game_pawn_button_radius"
                     android:layout_height="@dimen/game_pawn_button_radius"
                     android:background="@drawable/pawn"
-                    android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
+                    android:layout_margin="@dimen/game_big_pawn_margin"
                     android:backgroundTint="@color/pawn_black"/>
 
                 <Button
