@@ -3,7 +3,7 @@ package dev.android.sae.mastermind.model.game;
 import androidx.annotation.NonNull;
 
 public class Combination {
-    private Pawns[] composition;
+    private final Pawns[] composition;
     private int index;
     public Combination() {
         this.index = 0;
@@ -80,10 +80,10 @@ public class Combination {
     @NonNull
     @Override
     public String toString() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for(int i = 0; i < 4; i++) {
-            result += this.composition[i].toString()+", ";
+            result.append(this.composition[i].toString()).append(", ");
         }
-        return result;
+        return result.toString();
     }
 }

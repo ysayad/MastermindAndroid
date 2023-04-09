@@ -28,15 +28,14 @@ public class GameActivity extends AppCompatActivity {
             resRows[i-1] = (LinearLayout) tr.getChildAt(1);
 
         }
-        ModelGame model = new ModelGame(false, rows, resRows);
-        ColorButtonListener cbl = new ColorButtonListener(model);
-        TableLayout buttonRow = this.findViewById(R.id.buttonRow);
+        LinearLayout buttonBox = this.findViewById(R.id.buttonBox);
+        ModelGame model = new ModelGame(false, rows, resRows, buttonBox);
+        ColorButtonListener cbl = new ColorButtonListener(model, buttonBox);
+        LinearLayout buttonRow = this.findViewById(R.id.buttonRow);
         for (int i = 0; i < buttonRow.getChildCount(); i++) {
-            LinearLayout ll = (LinearLayout) buttonRow.getChildAt(i);
-            for (int j = 0; j < ll.getChildCount(); j++) {
-                Button b = (Button) ll.getChildAt(j);
-                b.setOnClickListener(cbl);
-            }
+            Button b = (Button) buttonRow.getChildAt(i);
+            b.setOnClickListener(cbl);
+
         }
     }
 }

@@ -764,6 +764,7 @@
         </TableLayout>
 
         <LinearLayout
+            android:id="@+id/buttonBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_row"
@@ -781,13 +782,9 @@
                 android:textSize="12sp"
                 android:textColor="@color/text_color"
                 android:layout_marginBottom="20dp"/>
-        <TableLayout
-            android:id="@+id/buttonRow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            >
+
             <LinearLayout
+                android:id="@+id/buttonRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center">
@@ -815,11 +812,7 @@
                     android:background="@drawable/pawn"
                     android:layout_marginHorizontal="10dp"
                     android:backgroundTint="@color/pawn_green"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center">
+
                 <Button
                     android:id="@+id/YELLOW"
                     android:layout_width="@dimen/game_pawn_button_radius"
@@ -827,22 +820,6 @@
                     android:background="@drawable/pawn"
                     android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
                     android:backgroundTint="@color/pawn_yellow"/>
-
-                <Button
-                    android:id="@+id/BLACK"
-                    android:layout_width="@dimen/game_pawn_button_radius"
-                    android:layout_height="@dimen/game_pawn_button_radius"
-                    android:background="@drawable/pawn"
-                    android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
-                    android:backgroundTint="@color/pawn_black"/>
-
-                <Button
-                    android:id="@+id/WHITE"
-                    android:layout_width="@dimen/game_pawn_button_radius"
-                    android:layout_height="@dimen/game_pawn_button_radius"
-                    android:background="@drawable/pawn"
-                    android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
-                    android:backgroundTint="@color/pawn_white"/>
 
                 <Button
                     android:id="@+id/GRAY"
@@ -854,7 +831,9 @@
             </LinearLayout>
 
 
-        </TableLayout>
+
+
+
 
     </LinearLayout>
 
