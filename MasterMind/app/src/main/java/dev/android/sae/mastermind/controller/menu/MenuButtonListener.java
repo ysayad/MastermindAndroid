@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 
 import dev.android.sae.mastermind.model.menu.ModelMenu;
+import dev.android.sae.mastermind.view.ChoiceActivity;
 import dev.android.sae.mastermind.view.GameActivity;
 
 public class MenuButtonListener implements View.OnClickListener{
@@ -22,8 +23,11 @@ public class MenuButtonListener implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if(view.getId() == this.soloButtonId){
-        }else{ //HotSeat est selectionné
             Intent i = new Intent(this.menuActivity, GameActivity.class);
+            i.putExtra("emptyPawnsFlag",this.model.getEmptyPawnFlag());
+            this.menuActivity.startActivity(i);
+        }else{ //HotSeat est selectionné
+            Intent i = new Intent(this.menuActivity, ChoiceActivity.class);
             i.putExtra("emptyPawnsFlag",this.model.getEmptyPawnFlag());
             this.menuActivity.startActivity(i);
         }
