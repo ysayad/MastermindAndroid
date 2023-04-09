@@ -7,6 +7,8 @@ import dev.android.sae.mastermind.model.game.Combination;
 import dev.android.sae.mastermind.model.game.ModelGame;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -28,12 +30,6 @@ public class GameActivity extends AppCompatActivity {
         String defender = extras.getString("defender");
         Boolean empty_flag = extras.getBoolean("emptyPawnsFlag");
 
-        if (!empty_flag) {
-            this.findViewById(R.id.GRAY).setEnabled(false);
-        } else {
-            this.findViewById(R.id.GRAY).setEnabled(true);
-        }
-
         TableLayout tl = this.findViewById(R.id.tableRow);
         LinearLayout[] rows = new LinearLayout[10];
         LinearLayout[] resRows = new LinearLayout[10];
@@ -50,15 +46,28 @@ public class GameActivity extends AppCompatActivity {
 
         if (!defender.contains("EMPTY")) {
             Combination comb = Combination.stringToCombination(defender);
-            model = new ModelGame(rows, resRows, buttonBox, comb);
+            model = new ModelGame(rows, resRows, buttonBox, comb, empty_flag);
 
         }
         ColorButtonListener cbl = new ColorButtonListener(model, buttonBox);
         LinearLayout buttonRow = this.findViewById(R.id.buttonRow);
+        Button b = null;
+        if (empty_flag) {
+            b = new Button(buttonRow.getChildAt(1).getContext());
+            b.setBackground(this.getResources().getDrawable(R.drawable.pawn));
+            b.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+            b.setTag("GRAY");
+            b.setLayoutParams(this.findViewById(R.id.RED).getLayoutParams());
+            LinearLayout ll = (LinearLayout) buttonRow.getChildAt(1);
+            ll.addView(b);
+        }
 
         for (int i = 0; i < buttonRow.getChildCount(); i++) {
-            Button b = (Button) buttonRow.getChildAt(i);
-            b.setOnClickListener(cbl);
+            LinearLayout ll = (LinearLayout) buttonRow.getChildAt(i);
+            for (int j = 0; j < ll.getChildCount(); j++) {
+                Button bc = (Button) ll.getChildAt(j);
+                bc.setOnClickListener(cbl);
+            }
 
         }
 

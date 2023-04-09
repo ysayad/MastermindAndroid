@@ -21,6 +21,7 @@ public class ModelGame {
     private int colorCount;
     private int proposalIndex;
     private final LinearLayout buttonBox;
+    private boolean emptyPawnsFlag;
 
 
     /**
@@ -41,6 +42,7 @@ public class ModelGame {
         this.defendant = new Combination();
         this.defendant.randomComposition(empty_flag);
         this.buttonBox = buttonBox;
+        this.emptyPawnsFlag = empty_flag;
     }
 
     /**
@@ -50,7 +52,7 @@ public class ModelGame {
      * @param buttonBox la boite de boutons
      * @param defendant la combinaison secrète du défenseur
      */
-    public ModelGame(LinearLayout[] rows, LinearLayout[] resRows, LinearLayout buttonBox, Combination defendant){
+    public ModelGame(LinearLayout[] rows, LinearLayout[] resRows, LinearLayout buttonBox, Combination defendant, boolean empty_flag){
         this.proposals = new Combination[10];
         for (int i = 0; i < 10; i++) {
             this.proposals[i] = new Combination();
@@ -61,6 +63,7 @@ public class ModelGame {
         this.resRows = resRows;
         this.defendant = defendant;
         this.buttonBox = buttonBox;
+        this.emptyPawnsFlag = empty_flag;
     }
 
     /**
@@ -76,6 +79,7 @@ public class ModelGame {
         this.proposals = null;
         this.proposalIndex = 0;
         this.colorCount = 0;
+        this.emptyPawnsFlag = false;
 
     }
 
@@ -222,5 +226,9 @@ public class ModelGame {
         ll.addView(rl);
 
         return ll;
+    }
+
+    public boolean getEmptyPawnsFlag() {
+        return this.emptyPawnsFlag;
     }
 }

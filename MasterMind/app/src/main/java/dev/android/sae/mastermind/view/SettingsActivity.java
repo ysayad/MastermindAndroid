@@ -27,7 +27,7 @@ public class SettingsActivity extends AppCompatActivity {
         this.getIntent();
         Intent intent = this.getIntent();
         Bundle extras = intent.getExtras();
-        Boolean empty_flag = extras.getBoolean("emptyPawnsFlag");
+        boolean empty_flag = extras.getBoolean("emptyPawnsFlag");
 
         if (!empty_flag) {
             checkBox.setChecked(false);

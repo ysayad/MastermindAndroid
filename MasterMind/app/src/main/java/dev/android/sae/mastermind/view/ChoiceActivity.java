@@ -1,6 +1,8 @@
 package dev.android.sae.mastermind.view;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -24,22 +26,29 @@ public class ChoiceActivity extends AppCompatActivity {
         Bundle extras = intent.getExtras();
         Boolean empty_flag = extras.getBoolean("emptyPawnsFlag");
 
-        if (!empty_flag) {
-            this.findViewById(R.id.GRAY).setEnabled(false);
-        } else {
-            this.findViewById(R.id.GRAY).setEnabled(true);
-        }
-
         ModelMenu model = new ModelMenu();
         Button confirm = (Button) this.findViewById(R.id.setting_validation_button);
         LinearLayout pawnRow = this.findViewById(R.id.pawnRow);
         ModelGame modelGame = new ModelGame(pawnRow);
         ChoiceButtonListener cbl = new ChoiceButtonListener(this, empty_flag, modelGame);
         LinearLayout buttonRow = this.findViewById(R.id.buttonRow);
+        Button b = null;
+        if (empty_flag) {
+            b = new Button(buttonRow.getChildAt(1).getContext());
+            b.setBackground(this.getResources().getDrawable(R.drawable.pawn));
+            b.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+            b.setTag("GRAY");
+            b.setLayoutParams(this.findViewById(R.id.RED).getLayoutParams());
+            LinearLayout ll = (LinearLayout) buttonRow.getChildAt(1);
+            ll.addView(b);
+        }
 
         for (int i = 0; i < buttonRow.getChildCount(); i++) {
-            Button b = (Button) buttonRow.getChildAt(i);
-            b.setOnClickListener(cbl);
+            LinearLayout ll = (LinearLayout) buttonRow.getChildAt(i);
+            for (int j = 0; j < ll.getChildCount(); j++) {
+                Button bc = (Button) ll.getChildAt(j);
+                bc.setOnClickListener(cbl);
+            }
 
         }
 

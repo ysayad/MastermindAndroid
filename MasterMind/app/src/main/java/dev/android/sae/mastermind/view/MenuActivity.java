@@ -27,9 +27,22 @@ public class MenuActivity extends AppCompatActivity {
         this.getSupportActionBar().hide();
 
         this.requestCode = 1;
+        Intent intent = this.getIntent();
+        Bundle extras = intent.getExtras();
+        ModelMenu model = new ModelMenu();
+        boolean empty_flag;
+        if (extras != null) {
+            Log.d("extras",extras.toString());
+            Log.d("extras",extras.getBoolean("emptyPawnsFlag")+"");
+            empty_flag = extras.getBoolean("emptyPawnsFlag");
+            if (empty_flag) {
+                model = new ModelMenu(empty_flag);
+            }
+        }
 
         setContentView(R.layout.activity_menu);
-        ModelMenu model = new ModelMenu();
+
+
 
         //Attribution du listener aux boutons de choix du mode
         Button soloButton = (Button)this.findViewById(R.id.main_button_solo);

@@ -34,48 +34,28 @@ public class ChoiceButtonListener implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        Pawns color = null;
+
         // Ajouter une couleur à la combinaison défenseur
-        switch (view.getId()){
-            case R.id.RED:
-                this.defender.addPawn(Pawns.RED);
-                color = Pawns.RED;
-                break;
 
-            case R.id.BLUE:
-                this.defender.addPawn(Pawns.BLUE);
-                color = Pawns.BLUE;
-                break;
 
-            case R.id.GREEN:
-                this.defender.addPawn(Pawns.GREEN);
-                color = Pawns.GREEN;
-                break;
-
-            case R.id.YELLOW:
-                this.defender.addPawn(Pawns.YELLOW);
-                color = Pawns.YELLOW;
-                break;
-
-            case R.id.GRAY:
-                this.defender.addPawn(Pawns.GRAY);
-                color = Pawns.GRAY;
-                break;
-
-            case R.id.setting_validation_button:
-                if (this.modelg.getColorCount() == 4) {
-                    Intent i = new Intent(this.choiceActivity, GameActivity.class);
-                    i.putExtra("emptyPawnsFlag",this.empty_flag);
-                    i.putExtra("defender", this.defender.toString());
-                    this.choiceActivity.startActivity(i);
-                }
-                break;
+        if (view.getId()==R.id.setting_validation_button) {
+            if (this.modelg.getColorCount() == 4) {
+                Intent i = new Intent(this.choiceActivity, GameActivity.class);
+                i.putExtra("emptyPawnsFlag", this.empty_flag);
+                i.putExtra("defender", this.defender.toString());
+                this.choiceActivity.startActivity(i);
+            }
+        } else {
+            if (this.modelg.getColorCount() <4) {
+                Pawns color = Pawns.valueOf(view.getTag().toString());
+                this.defender.addPawn(color);
+                this.modelg.getPawn().setBackgroundTintList(ColorStateList.valueOf(color.getColor()));
+                this.modelg.setColorCount(this.modelg.getColorCount() + 1);
+            }
         }
-        if (color != null && view.getId() != R.id.setting_validation_button) {
-            Log.d("defenderC", this.defender.toString());
-            this.modelg.getPawn().setBackgroundTintList(ColorStateList.valueOf(color.getColor()));
-            this.modelg.setColorCount(this.modelg.getColorCount() + 1);
-        }
+
+
+
 
     }
 }

@@ -52,10 +52,10 @@ public enum Pawns {
     public static Pawns getRandom(boolean empty_flag) {
         Pawns ret = values()[RANDOM.nextInt(values().length)];
         if (empty_flag)
-            while (ret==WHITE || ret==BLACK || ret==EMPTY)
+            while (ret==EMPTY)
                 ret = values()[RANDOM.nextInt(values().length)];
         else
-            while (ret==WHITE || ret==BLACK || ret==EMPTY || ret==GRAY)
+            while (ret==EMPTY || ret==GRAY)
                 ret = values()[RANDOM.nextInt(values().length)];
         return ret;
     }

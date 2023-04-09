@@ -22,6 +22,10 @@ public class ModelMenu {
         this.m_emptyPawnFlag = false;
     }
 
+    public ModelMenu(boolean emptyPawnFlag){
+        this.m_emptyPawnFlag = emptyPawnFlag;
+    }
+
     /**
      * Active/desactive les jetons vides
      * @param emptyPawnFlag Le flag permettant de savoir si les jetons vides sont autorisés

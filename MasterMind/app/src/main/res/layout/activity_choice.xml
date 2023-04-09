@@ -92,52 +92,82 @@
 
         </TableLayout>
 
-        <LinearLayout
+        <TableLayout
             android:id="@+id/buttonRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center">
-            <Button
-                android:id="@+id/RED"
-                android:layout_width="@dimen/game_pawn_button_radius"
-                android:layout_height="@dimen/game_pawn_button_radius"
-                android:background="@drawable/pawn"
-                android:layout_marginHorizontal="10dp"
-                android:backgroundTint="@color/pawn_red"
-                android:paddingBottom="30dp"/>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                >
 
-            <Button
-                android:id="@+id/BLUE"
-                android:layout_width="@dimen/game_pawn_button_radius"
-                android:layout_height="@dimen/game_pawn_button_radius"
-                android:background="@drawable/pawn"
-                android:layout_marginHorizontal="10dp"
-                android:backgroundTint="@color/pawn_blue"/>
+                <Button
+                    android:id="@+id/RED"
+                    android:tag="RED"
+                    android:layout_width="@dimen/game_pawn_button_radius"
+                    android:layout_height="@dimen/game_pawn_button_radius"
+                    android:background="@drawable/pawn"
+                    android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
+                    android:backgroundTint="@color/pawn_red"
+                    />
 
-            <Button
-                android:id="@+id/GREEN"
-                android:layout_width="@dimen/game_pawn_button_radius"
-                android:layout_height="@dimen/game_pawn_button_radius"
-                android:background="@drawable/pawn"
-                android:layout_marginHorizontal="10dp"
-                android:backgroundTint="@color/pawn_green"/>
+                <Button
+                    android:id="@+id/BLUE"
+                    android:tag="BLUE"
+                    android:layout_width="@dimen/game_pawn_button_radius"
+                    android:layout_height="@dimen/game_pawn_button_radius"
+                    android:background="@drawable/pawn"
+                    android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
+                    android:backgroundTint="@color/pawn_blue"/>
 
-            <Button
-                android:id="@+id/YELLOW"
-                android:layout_width="@dimen/game_pawn_button_radius"
-                android:layout_height="@dimen/game_pawn_button_radius"
-                android:background="@drawable/pawn"
-                android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
-                android:backgroundTint="@color/pawn_yellow"/>
+                <Button
+                    android:id="@+id/GREEN"
+                    android:tag="GREEN"
+                    android:layout_width="@dimen/game_pawn_button_radius"
+                    android:layout_height="@dimen/game_pawn_button_radius"
+                    android:background="@drawable/pawn"
+                    android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
+                    android:backgroundTint="@color/pawn_green"/>
 
-            <Button
-                android:id="@+id/GRAY"
-                android:layout_width="@dimen/game_pawn_button_radius"
-                android:layout_height="@dimen/game_pawn_button_radius"
-                android:background="@drawable/pawn"
-                android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
-                android:backgroundTint="@color/pawn_empty"/>
-        </LinearLayout>
+                <Button
+                    android:id="@+id/YELLOW"
+                    android:tag="YELLOW"
+                    android:layout_width="@dimen/game_pawn_button_radius"
+                    android:layout_height="@dimen/game_pawn_button_radius"
+                    android:background="@drawable/pawn"
+                    android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
+                    android:backgroundTint="@color/pawn_yellow"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                >
+
+                <Button
+                    android:id="@+id/BLACK"
+                    android:tag="BLACK"
+                    android:layout_width="@dimen/game_pawn_button_radius"
+                    android:layout_height="@dimen/game_pawn_button_radius"
+                    android:background="@drawable/pawn"
+                    android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
+                    android:backgroundTint="@color/pawn_black"/>
+
+                <Button
+                    android:id="@+id/WHITE"
+                    android:tag="WHITE"
+                    android:layout_width="@dimen/game_pawn_button_radius"
+                    android:layout_height="@dimen/game_pawn_button_radius"
+                    android:background="@drawable/pawn"
+                    android:layout_marginHorizontal="@dimen/game_big_pawn_margin"
+                    android:backgroundTint="@color/pawn_white"/>
+
+            </LinearLayout>
+
+        </TableLayout>
 
         <Button
             android:id="@+id/setting_validation_button"

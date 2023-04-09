@@ -37,26 +37,7 @@ public class ColorButtonListener implements View.OnClickListener, View.OnTouchLi
     public void onClick(View view) {
         Pawns pawnColor = Pawns.GRAY;
         // On récupère la couleur du pion
-        switch (view.getId()){
-            case R.id.RED:
-                pawnColor = Pawns.RED;
-                break;
-
-            case R.id.BLUE:
-                pawnColor = Pawns.BLUE;
-                break;
-
-            case R.id.GREEN:
-                pawnColor = Pawns.GREEN;
-                break;
-
-            case R.id.YELLOW:
-                pawnColor = Pawns.YELLOW;
-                break;
-
-            case R.id.GRAY:
-                break;
-        }
+        pawnColor = Pawns.valueOf(view.getTag().toString());
 
         this.model.getProposal().addPawn(pawnColor);
         this.model.getPawn().setBackgroundTintList(ColorStateList.valueOf(pawnColor.getColor()));
@@ -92,6 +73,7 @@ public class ColorButtonListener implements View.OnClickListener, View.OnTouchLi
             case MotionEvent.ACTION_DOWN:
                 if (this.ended) {
                     Intent intent = new Intent(view.getContext(), MenuActivity.class);
+                    intent.putExtra("emptyPawnsFlag", this.model.getEmptyPawnsFlag());
                     view.getContext().startActivity(intent);
 
                 }
