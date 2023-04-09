@@ -4,9 +4,11 @@
     <string name="main_choose_game_mode_message">Bienvenue dans MasterMind,\nVeuillez choisir un mode de jeu.</string>
     <string name="copyright">© 2023 - par Adam Meddahi, Kamil Mardaci et Youcef Sayad </string>
     <string name="game_attacker_indication">L\'attaquant joue :</string>
+    <string name="game_defenser_indication">Le défenseur choisi la configuration :</string>
     <string name="game_play_indication">Double tappez sur le jeton</string>
     <string name="setting_title">Configuration</string>
     <string name="setting_prompt">Ici, vous pourrez configurer \nl\'application Mastermind</string>
     <string name="setting_empty_pawn_activation_prompt">Activer les pions incolores</string>
     <string name="setting_validation_button_prompt">Valider la configuration</string>
+    <string name="secret_combination">La combinaison secrète :</string>
 </resources>
